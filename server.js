@@ -1,11 +1,5 @@
-
 var io = require('socket.io').listen(3000);
-
-var domains = [];
-var domain = '';
-var ip = '';
 var clients = [];
-
 io.sockets.on('connection', function(client){
     
     io.emit('clients', clients);
@@ -28,7 +22,5 @@ io.sockets.on('connection', function(client){
         }
         io.emit('clients', clients);
     });
-
- 
 });
 
