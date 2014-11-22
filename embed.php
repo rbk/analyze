@@ -19,7 +19,6 @@ getenv('HTTP_FORWARDED')?:
 getenv('REMOTE_ADDR');
 
 ?>
-<!-- 'forceNew':true, 'reconnect':false, 'sync disconnect on unload':true  -->
 <script>
 	function supports_html5_storage() {
 	  try {
