@@ -5,7 +5,7 @@
 
 ?>
 
-<script src="/node_modules/socket.io-client/socket.io.js"></script>
+<script src="<?php echo base_url; ?>/node_modules/socket.io-client/socket.io.js"></script>
 <?php 
 $ip = getenv('HTTP_CLIENT_IP')?:
 getenv('HTTP_X_FORWARDED_FOR')?:
@@ -57,7 +57,7 @@ getenv('REMOTE_ADDR');
   var tmp = document.createElement ('a');
   tmp.href = url;
   var host = tmp.hostname;
-  
+
   socket.emit('client-info', {
     id: id,
     url: url,

@@ -10,9 +10,12 @@
 <body>
 	
 <script src="<?php echo base_url; ?>/node_modules/socket.io-client/socket.io.js"></script>
-
-<div class="row">
+<nav class="nav">
+	<div class="pagename">Analyze</div>
+	<a target="_blank" href="<?php echo base_url; ?>/test.php">Test URL</a>
+</nav>
 		
+<div class="row">
 	<div class="col c3">
 		<div id="total-connections" class="widget center">
 			<div class="widget-title">Number of Connections</div>
