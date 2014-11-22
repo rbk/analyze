@@ -7,7 +7,8 @@ body {
 	font-family: arial, helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
-	background-color: #575757;
+	// background-color: #181818;
+	background: rgba(0,0,0,.5) url( ../images/footer_lodyas.png );
 	color: #fff;
 }
 pre {
@@ -15,13 +16,14 @@ pre {
 }
 .widget {
 	color: #fff;
-	background-color: #000;
+	// background-color: #000;
 	box-shadow: 1px 1px 5px -2px #000;
 	margin: 0 10px 10px 10px;
 }
 .widget-title {
 	font-size: 12px;
 	background-color: #222;
+	background-color: rgba(34, 34, 34, 0.3);
 	padding: 1em;
 	font-weight: bold;
 	text-align: center;
@@ -29,6 +31,7 @@ pre {
 .widget-body {
 	padding: 10px;
 	background-color: $base-color;
+	background-color: rgba(56, 129, 161, 0.3);
 	overflow: hidden;
 }
 #total-connections {

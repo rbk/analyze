@@ -127,12 +127,14 @@ textarea, input[type=text] {
     padding: 8px 12px;
     box-shadow: 0 0 0 1px #ccc;
 }
-.nav, .nav .current, .nav a:hover {
+.nav .current, .nav a:hover {
     background: #222;
     color: #fff;
 }
 .nav {
     box-shadow: 1px 1px 5px -2px #000;
+    overflow: hidden;
+    background-color: rgba(24, 24, 24, 0.3);
 }
 .nav a {
     color: #aaa;
@@ -164,9 +166,7 @@ textarea, input[type=text] {
     .btn.btn-close {
     display: block;
 }
-.nav {
-    overflow: hidden;
-}
+
 .pagename {
     margin-top: -11px;
 }
