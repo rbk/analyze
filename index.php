@@ -6,6 +6,7 @@
 	<title>Dashboard</title>
 	<link rel="stylesheet" href="css/app.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/build/production.min.js"></script>
 </head>
 <body>
 	
@@ -29,19 +30,19 @@
 				<div class="domain">localhost	<span>0</span></div><hr>
 			</div>
 		</div>
-		<div id="top-pages" class="widget center hide">
+		<div id="top-pages" class="widget center">
 			<div class="widget-title">Top Pages</div>
-			<div class="widget-body">
+			<!-- <div class="widget-body">
 				<div>http://localhost/sotest/test.html</div>
 				<div>http://localhost/sotest/test2.html</div>
 				<div>http://localhost/sotest/test3.html</div>
-			</div>
+			</div> -->
 		</div>
-		<div id="average-time" class="widget center hide">
+		<div id="average-time" class="widget center">
 			<div class="widget-title">Average Time On Page</div>
-			<div class="widget-body">
+			<!-- <div class="widget-body">
 				<div id="avg">12.2s</div>
-			</div>
+			</div> -->
 		</div>
 		<div class="widget">
 			<div class="widget-title">Embed</div>

@@ -1,3 +1,4 @@
+// Socket Server
 var io = require('socket.io').listen(3000);
 var clients = [];
 io.sockets.on('connection', function(client){
@@ -13,12 +14,14 @@ io.sockets.on('connection', function(client){
     });
     client.on('disconnect', function() {
         if( client.custom_id ){
+            
             for(var i=0; i<clients.length; i++){
                 if( clients[i].id== client.custom_id && clients[i].url == client.current_page ){
                     clients.splice(clients[i], 1);
                     break;
                 }
             }
+            
         }
         io.emit('clients', clients);
     });
