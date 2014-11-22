@@ -29,7 +29,7 @@
 				<div class="domain">localhost	<span>0</span></div><hr>
 			</div>
 		</div>
-		<div id="top-pages" class="widget center">
+		<div id="top-pages" class="widget center hide">
 			<div class="widget-title">Top Pages</div>
 			<div class="widget-body">
 				<div>http://localhost/sotest/test.html</div>
@@ -37,7 +37,7 @@
 				<div>http://localhost/sotest/test3.html</div>
 			</div>
 		</div>
-		<div id="average-time" class="widget center">
+		<div id="average-time" class="widget center hide">
 			<div class="widget-title">Average Time On Page</div>
 			<div class="widget-body">
 				<div id="avg">12.2s</div>

@@ -1,12 +1,16 @@
 <?php 
 
-	header('Access-Control-Allow-Origin: *');
-	require 'config.php'; 
+  if( !$_SERVER['HTTP_REFERER'] )
+    die();
+  
+  header('Access-Control-Allow-Origin: *');
+  require 'config.php';
 
 ?>
 
 <script src="<?php echo base_url; ?>/node_modules/socket.io-client/socket.io.js"></script>
-<?php 
+<?php
+
 $ip = getenv('HTTP_CLIENT_IP')?:
 getenv('HTTP_X_FORWARDED_FOR')?:
 getenv('HTTP_X_FORWARDED')?:
@@ -42,31 +46,33 @@ getenv('REMOTE_ADDR');
     }
     return id;
   }
-  // Start socket io
-  var socket = io.connect('<?php echo io_url; ?>', {});
-  
-  if( supports_html5_storage() ){
-    var id = localStorage.getItem('rbk_user_id');
-    if( id == null ){
-      localStorage.setItem('rbk_user_id', randomId() );
-      id = localStorage.getItem('rbk_user_id');
-    }
-  }
-  // socket.custom_id = id;
-  var url = (window.location != window.parent.location) ? document.referrer: document.location;
-  var tmp = document.createElement ('a');
-  tmp.href = url;
-  var host = tmp.hostname;
 
-  socket.emit('client-info', {
-    id: id,
-    url: url,
-    host: host,
-    ip:'<?php echo $ip; ?>',
-    city: '',
-    state: '',
-    lat: '',
-    lng: ''
-	});
+  var socket = io('<?php echo io_url; ?>');
+  socket.on('connect', function () {
+
+    if( supports_html5_storage() ){
+      var id = localStorage.getItem('rbk_user_id');
+      if( id == null ){
+        localStorage.setItem('rbk_user_id', randomId() );
+        id = localStorage.getItem('rbk_user_id');
+      }
+    }
+    var url = document.referrer;
+    var tmp = document.createElement('a');
+    tmp.href = url;
+    var host = tmp.hostname;
+
+    socket.emit('client-info', {
+      id: id,
+      url: url,
+      host: host,
+      ip:'<?php echo $ip; ?>',
+      city: '',
+      state: '',
+      lat: '',
+      lng: ''
+  	});
+
+  });  
 
 </script>
