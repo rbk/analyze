@@ -127,7 +127,7 @@
 			});
 
 			// console.log( domains );
-			$('#domains-list').html('<div class="domain">No active connections</div>');
+			$('#domains-list').html('');
 			for( key in domains ){
 				// console.log( domains[key] )
 				var domain_template = $('#domain-list-template').html();

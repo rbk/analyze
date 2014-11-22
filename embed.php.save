@@ -1,11 +1,10 @@
-<?php 
-
-	header('Access-Control-Allow-Origin: *');
+<?php
+	 
 	require 'config.php'; 
-
 ?>
 
 <script src="/node_modules/socket.io-client/socket.io.js"></script>
+<script src="//www.google.com/jsapi"></script>
 <?php 
 $ip = getenv('HTTP_CLIENT_IP')?:
 getenv('HTTP_X_FORWARDED_FOR')?:
@@ -54,18 +53,16 @@ getenv('REMOTE_ADDR');
   }
   // socket.custom_id = id;
 	var url = (window.location != window.parent.location) ? document.referrer: document.location;
-var tmp        = document.createElement ('a');
-tmp.href   = url;
-var host = tmp.hostname;
+	var host = window.parent.location.host;
   socket.emit('client-info', {
     id: id,
     url: url,
     host: host,
     ip:'<?php echo $ip; ?>',
-    city: '',
-    state: '',
-    lat: '',
-    lng: ''
+    city: google.loader.ClientLocation.address.city,
+    state: google.loader.ClientLocation.address.region,
+    lat: google.loader.ClientLocation.latitude,
+    lng: google.loader.ClientLocation.longitude
 	});
 
 </script>
