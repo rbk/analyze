@@ -14,6 +14,7 @@
 <nav class="nav">
 	<div class="pagename">Analyze</div>
 	<a target="_blank" href="<?php echo base_url; ?>/test.php">Test URL</a>
+	<a target="_blank" href="<?php echo base_url; ?>/stress-test.php">Stress Test</a>
 </nav>
 		
 <div class="row">
@@ -54,7 +55,7 @@
 	</div>
 
 	<div class="col c9">
-		<div id="table" class="widget">
+		<div id="connection-table" class="widget">
 			<div class="widget-title">Generic Table</div>
 			<div class="widget-body">
 				<table class="table">

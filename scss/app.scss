@@ -34,7 +34,7 @@ pre {
 #total-connections {
 	font-size: 44px;
 }
-#table {
+#connection-table {
 	font-size: 12px; 
 }
 #embed-code {
@@ -49,8 +49,9 @@ pre {
 		text-align: left;
 	}
 }
-#json-widget .widget-body{
-	height: 300px;
+#json-widget .widget-body,
+#connection-table .widget-body {
+	height: 250px;
 	overflow-y: scroll;
 }
 #domains-list {
@@ -67,8 +68,8 @@ pre {
 			color: #222;
 			border-radius: 9px;
 			display: block;
-			width: 18px;
 			text-align: center;
+			padding: 0 3px;
 		}
 	}
 	hr {
