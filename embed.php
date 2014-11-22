@@ -53,10 +53,11 @@ getenv('REMOTE_ADDR');
     }
   }
   // socket.custom_id = id;
-	var url = (window.location != window.parent.location) ? document.referrer: document.location;
-var tmp        = document.createElement ('a');
-tmp.href   = url;
-var host = tmp.hostname;
+  var url = (window.location != window.parent.location) ? document.referrer: document.location;
+  var tmp = document.createElement ('a');
+  tmp.href = url;
+  var host = tmp.hostname;
+  
   socket.emit('client-info', {
     id: id,
     url: url,
