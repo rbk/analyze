@@ -1,5 +1,5 @@
 <?php 
-
+  session_start();
   header('Access-Control-Allow-Origin: *');
   require 'config.php';
 
@@ -18,8 +18,8 @@
   getenv('HTTP_FORWARDED')?:
   getenv('REMOTE_ADDR');
   $user = array(
-    'ip'      => $ip,
     'id'      => $_COOKIE['PHPSESSID'],
+    'ip'      => $ip,
     'agent'   => $HTTP_USER_AGENT,
     'time'    => $REQUEST_TIME_FLOAT,
     'scheme'  => $REQUEST_SCHEME,
@@ -49,7 +49,7 @@
   user.browser_dimensions = window.outerWidth + ' x ' + window.outerHeight;
 
 
-  // console.log( user );
+  console.log( user );
   var socket = io('<?php echo io_url; ?>');
   socket.on('connect', function () {
     socket.emit('client-info', user);
