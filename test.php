@@ -20,8 +20,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
-<body>
-	<pre>
+<body>	<pre>
 		<?php
 		// print_r( $_SERVER );
 ?>
