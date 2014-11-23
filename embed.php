@@ -1,5 +1,6 @@
 <?php 
 
+  session_start();
   header('Access-Control-Allow-Origin: *');
   require 'config.php';
 
@@ -49,7 +50,7 @@
   user.browser_dimensions = window.outerWidth + ' x ' + window.outerHeight;
 
 
-  // console.log( user );
+  console.log( user );
   var socket = io('<?php echo io_url; ?>');
   socket.on('connect', function () {
     socket.emit('client-info', user);

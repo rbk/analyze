@@ -11,7 +11,7 @@
 		var total = 20;
 		for( var i=0; i<total; i++ ){
 			var iframe = document.createElement('iframe');
-			iframe.setAttribute('src', '<?php echo base_url; ?>/test.php');
+			iframe.setAttribute('src', 'http://gurustu.co');
 			iframe.style.display = 'none';
 			document.getElementById('connections').innerHTML = 'Connections Made: ' + total;
 			document.body.appendChild( iframe );
