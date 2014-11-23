@@ -23,15 +23,16 @@ module.exports = function(grunt) {
           options: {
            mangle: false,
             compress: {
-              drop_console: false
+              drop_console: true
             }
           },
           dist: {
               options: {
-                  beautify: true
+                  beautify: false
               },
               files: {
-                  'js/build/production.min.js': ['js/app.js']
+                  'js/build/production.min.js': ['js/app.js'],
+                  'js/build/client.min.js' : ['node_modules/socket.io-client/socket.io.js']
               }
           }
       },
@@ -46,7 +47,7 @@ module.exports = function(grunt) {
               tasks: ['sass']
           },
           js: {
-              files: 'js/*.js',
+              files: ['js/*.js', 'node_modules/socket.io-client/socket.io.js'],
               tasks: ['uglify']
           },
           server: {

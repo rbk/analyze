@@ -1,77 +1,37 @@
 <?php 
 
-  if( !$_SERVER['HTTP_REFERER'] )
-    die();
-  
   header('Access-Control-Allow-Origin: *');
   require 'config.php';
 
+  if( !isset($_SERVER['HTTP_REFERER']) )
+    die();
+
+  if( !@get_headers( io_url ) )
+    die();
+
+  extract( $_SERVER );
+
+  $ip = getenv('HTTP_CLIENT_IP')?:
+  getenv('HTTP_X_FORWARDED_FOR')?:
+  getenv('HTTP_X_FORWARDED')?:
+  getenv('HTTP_FORWARDED_FOR')?:
+  getenv('HTTP_FORWARDED')?:
+  getenv('REMOTE_ADDR');
+  error_log( ip2long($ip) );
+  $user = array(
+    'ip'      => $ip,
+    'id'      => $_COOKIE['PHPSESSID'],
+    'agent'   => $HTTP_USER_AGENT,
+    'time'    => $REQUEST_TIME_FLOAT,
+    'scheme'  => $REQUEST_SCHEME,
+    'host'    => $HTTP_HOST,
+    'url'     => $HTTP_REFERER,
+    'city'    => '',
+    'state'   => '',
+    'lat'     => '',
+    'lng'     => ''
+  );
+  $user = json_encode($user);
 ?>
-
-<script src="<?php echo base_url; ?>/node_modules/socket.io-client/socket.io.js"></script>
-<?php
-
-$ip = getenv('HTTP_CLIENT_IP')?:
-getenv('HTTP_X_FORWARDED_FOR')?:
-getenv('HTTP_X_FORWARDED')?:
-getenv('HTTP_FORWARDED_FOR')?:
-getenv('HTTP_FORWARDED')?:
-getenv('REMOTE_ADDR');
-
-?>
-<script>
-	function supports_html5_storage() {
-	  try {
-	    return 'localStorage' in window && window['localStorage'] !== null;
-	  } catch (e) {
-	    return false;
-	  }
-	}
-  function randomId(){
-    var id = '';
-    var character = '';
-    var alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    for(var i=0; i< 30; i++ ){
-      var random_number = Math.floor(Math.random()*9) ;
-      id += random_number;
-      if( random_number % 2 ){
-        character = alpha.charAt( Math.floor(Math.random()*alpha.length) );
-        if( Math.floor(Math.random()*100) % 2 ){
-          id += character.toLowerCase();
-        } else {
-          id += character;
-        }
-      }
-    }
-    return id;
-  }
-
-  var socket = io('<?php echo io_url; ?>');
-  socket.on('connect', function () {
-
-    if( supports_html5_storage() ){
-      var id = localStorage.getItem('rbk_user_id');
-      if( id == null ){
-        localStorage.setItem('rbk_user_id', randomId() );
-        id = localStorage.getItem('rbk_user_id');
-      }
-    }
-    var url = document.referrer;
-    var tmp = document.createElement('a');
-    tmp.href = url;
-    var host = tmp.hostname;
-
-    socket.emit('client-info', {
-      id: id,
-      url: url,
-      host: host,
-      ip:'<?php echo $ip; ?>',
-      city: '',
-      state: '',
-      lat: '',
-      lng: ''
-  	});
-
-  });  
-
-</script>
+<script src="<?php echo base_url; ?>/js/build/client.min.js"></script>
+<script>var socket = io('<?php echo io_url; ?>');socket.on('connect', function () {socket.emit('client-info', <?php echo $user; ?>);});</script>

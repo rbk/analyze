@@ -1,5 +1,6 @@
 @import "min";
 $base-color: #3881A1;
+$base-transparent: rgba(56, 129, 161, 0.3);
 * {
 	box-sizing: border-box;
 }
@@ -31,7 +32,7 @@ pre {
 .widget-body {
 	padding: 10px;
 	background-color: $base-color;
-	background-color: rgba(56, 129, 161, 0.3);
+	background-color: $base-transparent;
 	overflow: hidden;
 }
 #total-connections {
@@ -61,7 +62,7 @@ pre {
 	.domain {
 		font-size: 12px;
 		background-color: #454545;
-		background-color: $base-color;
+		background-color: $base-transparent;
 		padding: 5px 1em;
 		font-weight: bold;
 		overflow: hidden;
