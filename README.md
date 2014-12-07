@@ -12,3 +12,6 @@ Todos:
 - Set up Mongo DB to save data
 - Build pages to view saved data
 - Install GeoIp2 to get location data: https://github.com/maxmind/GeoIP2-php
+- Notifications
+- Event tracking
+- Dashboard Authentication

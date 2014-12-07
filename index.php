@@ -13,8 +13,8 @@
 <script src="<?php echo base_url; ?>/node_modules/socket.io-client/socket.io.js"></script>
 <nav class="nav">
 	<div class="pagename">Analyze</div>
-	<a target="_blank" href="<?php echo base_url; ?>/test.php">Test URL</a>
-	<a target="_blank" href="<?php echo base_url; ?>/stress-test.php">Stress Test</a>
+	<a target="_blank" href="<?php echo base_url; ?>/testing/test.php">Test URL</a>
+	<a target="_blank" href="<?php echo base_url; ?>/testing/stress-test.php">Stress Test</a>
 </nav>
 		
 <div class="row">
