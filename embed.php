@@ -48,7 +48,7 @@
   user.screen_dimensions = screen.width + ' x ' + screen.height;
   user.browser_dimensions = window.outerWidth + ' x ' + window.outerHeight;
 
-  console.log( user );
+ // console.log( user );
 
   var socket = io('<?php echo io_url; ?>');
   socket.on('connect', function () {
