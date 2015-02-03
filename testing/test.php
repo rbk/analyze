@@ -8,7 +8,7 @@
 // echo $REQUEST_SCHEME;
 // echo $HTTP_HOST;
 // die();
-	require 'config.php'; 
+	require '../config.php'; 
 	// $iourl = get_headers( io_url );
 	// echo ( $iourl ) ? 'test' : die();
 	// $check = file_get_contents( io_url );

@@ -1,6 +1,6 @@
 <?php 
-  session_start();
   header('Access-Control-Allow-Origin: *');
+  session_start();
   require 'config.php';
 
   if( !isset($_SERVER['HTTP_REFERER']) )
